@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useMediaQuery } from '@mui/material';
+import { Box } from '@mui/system';
+import { isMobile } from 'react-device-detect';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Tabs from './pages/Tabs';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const matches = useMediaQuery('(max-width:375px)');
+  const renderRoutes = () => (
+    <Box sx={{ width: '100%' }}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="tabs" element={<Tabs />} />
+      </Routes>
+    </Box>
   );
+  const renderContent = () => {
+    /* mobile view */
+    if (isMobile || matches) {
+      return (
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <Navbar mobileScreen={true} />
+          {renderRoutes()}
+        </Box>
+      );
+    }
+    /* desktop view */
+    return (
+      <Box sx={{ display: 'flex' }}>
+        <Navbar mobileScreen={false} />
+        {renderRoutes()}
+      </Box>
+    );
+  };
+
+  return renderContent();
 }
 
 export default App;
