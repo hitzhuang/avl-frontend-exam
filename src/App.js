@@ -1,4 +1,4 @@
-import { useMediaQuery } from '@mui/material';
+import { createTheme, ThemeProvider, useMediaQuery } from '@mui/material';
 import { Box } from '@mui/system';
 import { isMobile } from 'react-device-detect';
 import { Routes, Route } from 'react-router-dom';
@@ -7,6 +7,12 @@ import Home from './pages/Home';
 import Tabs from './pages/Tabs';
 
 function App() {
+  const theme = createTheme({
+    typography: {
+      fontFamily: 'Ubuntu',
+      color: 'white',
+    },
+  });
   const matches = useMediaQuery('(max-width:375px)');
   const renderRoutes = (mobileScreen) => (
     <Box
@@ -49,7 +55,7 @@ function App() {
     );
   };
 
-  return renderContent();
+  return <ThemeProvider theme={theme}>{renderContent()}</ThemeProvider>;
 }
 
 export default App;

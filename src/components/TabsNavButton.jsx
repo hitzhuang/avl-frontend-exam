@@ -30,8 +30,6 @@ const TabsNavButton = ({ sx }) => {
       {/* nav name */}
       <Typography
         sx={{
-          fontFamily: 'Ubuntu',
-          fontWeight: 400,
           fontSize: '12px',
           lineHeight: '18px',
           letterSpacing: '0.4px',

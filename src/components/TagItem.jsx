@@ -19,7 +19,6 @@ const TagItem = ({ name, count }) => {
         />
         <Typography
           sx={{
-            fontFamily: 'Ubuntu',
             position: 'absolute',
             bottom: '14px',
             left: '10px',
@@ -39,7 +38,6 @@ const TagItem = ({ name, count }) => {
       <Typography
         mt="7px"
         sx={{
-          fontFamily: 'Ubuntu',
           fontSize: '14.9px',
           lineHeight: '22.35px',
           letterSpacing: '0.14px',
@@ -52,7 +50,6 @@ const TagItem = ({ name, count }) => {
       </Typography>
       <Typography
         sx={{
-          fontFamily: 'Ubuntu',
           fontSize: '11.17px',
           lineHeight: '16.76px',
           letterSpacing: '0.37px',

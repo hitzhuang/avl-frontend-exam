@@ -23,7 +23,6 @@ const MobileNavbar = () => {
         {/* back title */}
         <Typography
           sx={{
-            fontFamily: 'Ubuntu',
             color: 'white',
             marginLeft: '13.16px',
             fontSize: '24px',
