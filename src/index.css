@@ -5,6 +5,9 @@ html,
 body {
   background-color: #181818;
   color: white;
-  font-family: Ubuntu;
+  font-family: Ubuntu !important;
   margin: 0;
+}
+a {
+  text-decoration: none;
 }

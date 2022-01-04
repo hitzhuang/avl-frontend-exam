@@ -12,8 +12,8 @@ const Home = () => {
     <Box
       sx={{
         display: 'flex',
-        flexDirection: 'row',
         justifyContent: 'space-between',
+        width: '1360px',
       }}
     >
       <Box sx={{ border: '1px solid red', width: '100%' }}>
