@@ -14,7 +14,6 @@ const DestopNavbar = () => {
         alignItems: 'center',
         width: '80',
         height: '100vh',
-        bgcolor: '#1b1b1b',
         paddingTop: '37px',
         paddingLeft: '23px',
         paddingRight: '22px',

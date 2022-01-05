@@ -5,6 +5,7 @@ import '@fontsource/ubuntu/300.css';
 import '@fontsource/ubuntu/400.css';
 import '@fontsource/ubuntu/500.css';
 import '@fontsource/ubuntu/700.css';
+import '@fontsource/open-sans/600.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';

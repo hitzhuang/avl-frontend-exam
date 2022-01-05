@@ -1,10 +1,11 @@
 import { createTheme, ThemeProvider, useMediaQuery } from '@mui/material';
 import { Box } from '@mui/system';
 import { isMobile } from 'react-device-detect';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/navbars/Navbar';
 import Home from './pages/Home';
 import Tabs from './pages/Tabs';
+import Components from './pages/Components';
 
 function App() {
   const theme = createTheme({
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="tabs" element={<Tabs />} />
+        <Route path="components" element={<Components />} />
       </Routes>
     </Box>
   );
@@ -55,7 +57,17 @@ function App() {
     );
   };
 
-  return <ThemeProvider theme={theme}>{renderContent()}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={theme}>
+      {useLocation().pathname === '/components' ? (
+        // special path for components demo
+        <Components />
+      ) : (
+        // normal routes
+        renderContent()
+      )}
+    </ThemeProvider>
+  );
 }
 
 export default App;
