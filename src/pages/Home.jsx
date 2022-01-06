@@ -1,11 +1,9 @@
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { Box, useMediaQuery } from '@mui/material';
-import React, { useState } from 'react';
-import Search from '../containers/Search';
-import Results from '../containers/Results';
 import Profile from '../containers/Profile';
 
 const Home = () => {
-  const [result, setResult] = useState([]);
   const matches = useMediaQuery('(min-width:1440px)');
 
   return (
@@ -16,9 +14,12 @@ const Home = () => {
         width: '1360px',
       }}
     >
-      <Box sx={{ border: '1px solid red', width: '100%' }}>
-        {result.length === 0 ? <Search /> : <Results />}
+      {/* home page content using nested routes */}
+      <Box sx={{ width: '100%' }}>
+        <Outlet />
       </Box>
+
+      {/* display profile only when the screen width matches more than 1360px */}
       {matches && <Profile />}
     </Box>
   );

@@ -6,6 +6,8 @@ import Navbar from './components/navbars/Navbar';
 import Home from './pages/Home';
 import Tabs from './pages/Tabs';
 import Components from './pages/Components';
+import Search from './containers/Search';
+import Results from './containers/Results';
 
 function App() {
   const theme = createTheme({
@@ -24,7 +26,10 @@ function App() {
       }}
     >
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />}>
+          <Route path="/" element={<Search />} />
+          <Route path="/results" element={<Results />} />
+        </Route>
         <Route path="tabs" element={<Tabs />} />
         <Route path="components" element={<Components />} />
       </Routes>

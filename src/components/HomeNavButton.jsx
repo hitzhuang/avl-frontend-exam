@@ -6,7 +6,8 @@ import Icon from '../assets/clone.svg';
 import InactiveIcon from '../assets/clone-gray-out.svg';
 
 const HomeNavButton = ({ sx }) => {
-  const active = useLocation().pathname === '/';
+  const path = useLocation().pathname;
+  const active = path === '/' || path === '/results';
   return (
     <Box
       sx={{
