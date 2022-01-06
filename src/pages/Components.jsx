@@ -100,7 +100,9 @@ const Components = () => {
       </Box>
 
       {/* Input */}
-      <Box sx={{ marginTop: '109px' }}>
+      <Box
+        sx={{ display: 'flex', flexDirection: 'column', marginTop: '109px' }}
+      >
         <ComponentGroupTitle text="Input" />
         {/* NORMAL */}
         <Box sx={{ marginTop: '36px', marginLeft: '-1px' }}>
@@ -118,21 +120,23 @@ const Components = () => {
       </Box>
 
       {/* Slider */}
-      <Box sx={{ marginTop: '138px' }}>
+      <Box
+        sx={{ display: 'flex', flexDirection: 'column', marginTop: '138px' }}
+      >
         <ComponentGroupTitle text="Slider" />
         <StyledSlider
           aria-label="gradient slider"
           defaultValue={38.5}
           min={3}
           max={50}
-          sx={{ marginTop: '29px', marginLeft: '1px', width: '733px' }}
+          sx={{ marginTop: '22px', marginLeft: '1px', width: '733px' }}
         />
         <StyledSlider
           aria-label="gradient slider"
           defaultValue={50}
           min={3}
           max={50}
-          sx={{ marginTop: '41px', marginLeft: '1px', width: '733px' }}
+          sx={{ marginTop: '32px', marginLeft: '1px', width: '733px' }}
         />
       </Box>
     </Box>

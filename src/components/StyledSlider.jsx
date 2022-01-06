@@ -40,8 +40,8 @@ const StyledSlider = (props) => {
     }
   };
 
+  // initial update for active marked label
   useEffect(() => {
-    // initial update for active marked label
     updateChange(null, props.defaultValue);
   }, [props.defaultValue]);
 
@@ -62,7 +62,7 @@ const StyledSlider = (props) => {
           lineHeight: '24px',
           letterSpacing: '0.15px',
           opacity: '0.5',
-          marginTop: '5px',
+          marginTop: '2px',
           '&[data-index="0"]': {
             marginLeft: '4px',
           },
