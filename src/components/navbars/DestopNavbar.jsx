@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Box } from '@mui/system';
-import LogoIcon from '../LogoIcon';
-import HomeNavButton from '../HomeNavButton';
-import TabsNavButton from '../TabsNavButton';
+import LogoNavLink from '../navlinks/LogoNavLink';
+import HomeNavLink from '../navlinks/HomeNavLink';
+import TabsNavLink from '../navlinks/TabsNavLink';
 
 const DestopNavbar = () => {
   return (
@@ -12,42 +11,20 @@ const DestopNavbar = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: '80',
-        height: '100vh',
-        paddingTop: '37px',
-        paddingLeft: '23px',
-        paddingRight: '22px',
-        position: 'relative',
+        width: '80px',
+        minWidth: '80px',
+        paddingTop: '35px',
+        bgcolor: '#1b1b1b',
       }}
     >
       {/* logo */}
-      <Link to="/">
-        <LogoIcon />
-      </Link>
+      <LogoNavLink />
 
       {/* home */}
-      <Link to="/">
-        <HomeNavButton
-          sx={{
-            position: 'absolute',
-            top: '95px',
-            left: '0px',
-            right: '0px',
-          }}
-        />
-      </Link>
+      <HomeNavLink sx={{ marginTop: '38px', marginLeft: '1px' }} />
 
       {/* tabs */}
-      <Link to="/tabs">
-        <TabsNavButton
-          sx={{
-            position: 'absolute',
-            top: '159px',
-            left: '0px',
-            right: '0px',
-          }}
-        />
-      </Link>
+      <TabsNavLink sx={{ marginTop: '22px', marginLeft: '1px' }} />
     </Box>
   );
 };

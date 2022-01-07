@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ProTypes from 'prop-types';
 import { Slider } from '@mui/material';
 
 const marks = [
@@ -30,8 +31,8 @@ const marks = [
 
 const StyledSlider = (props) => {
   const [labelActive, setLabelActive] = useState('');
-  const updateChange = (e, data) => {
-    let index = marks.findIndex((m) => m.value >= data + 0.6);
+  const updateLabelActiveStatus = (data) => {
+    let index = marks.findIndex((m) => m.value >= data);
     if (data === 50) {
       index = marks.length;
     }
@@ -39,16 +40,23 @@ const StyledSlider = (props) => {
       setLabelActive(`&[data-index="${index - 1}"]`);
     }
   };
+  const handleChange = (e, data) => {
+    updateLabelActiveStatus(data);
+    props.handleValueChanged(e, data);
+  };
 
   // initial update for active marked label
   useEffect(() => {
-    updateChange(null, props.defaultValue);
+    updateLabelActiveStatus(props.defaultValue);
   }, [props.defaultValue]);
 
   return (
     <Slider
       marks={marks}
-      {...props}
+      aria-label={props['aria-label']}
+      defaultValue={props.defaultValue}
+      min={props.min}
+      max={props.max}
       sx={{
         color: 'white',
         height: '8px',
@@ -94,9 +102,13 @@ const StyledSlider = (props) => {
         },
         ...props.sx,
       }}
-      onChange={updateChange}
+      onChange={handleChange}
     />
   );
+};
+
+StyledSlider.proTypes = {
+  handle: ProTypes.func,
 };
 
 export default StyledSlider;

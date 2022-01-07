@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Box } from '@mui/system';
-import LogoIcon from '../LogoIcon';
-import BackIcon from '../../assets/back.svg';
 import { Typography } from '@mui/material';
+import BackIcon from '../../assets/back.svg';
+import LogoNavLink from '../navlinks/LogoNavLink';
 
 const MobileNavbar = () => {
   const isHome = useLocation().pathname === '/';
   const renderHome = () => (
-    <LogoIcon sx={{ paddingTop: '28px', paddingLeft: '21px' }} />
+    <LogoNavLink sx={{ paddingTop: '28px', paddingLeft: '21px' }} />
   );
   const renderBack = () => (
     <Link to="/">

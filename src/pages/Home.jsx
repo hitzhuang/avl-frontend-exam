@@ -11,15 +11,15 @@ const Home = () => {
       sx={{
         display: 'flex',
         justifyContent: 'space-between',
-        width: '1360px',
+        minWidth: '375px',
       }}
     >
       {/* home page content using nested routes */}
-      <Box sx={{ width: '100%' }}>
-        <Outlet />
-      </Box>
+      {/* route settings could be found from App component  */}
+      {/* components: Search & SearchResults */}
+      <Outlet />
 
-      {/* display profile only when the screen width matches more than 1360px */}
+      {/* display profile only when the screen width matches more than 1440px */}
       {matches && <Profile />}
     </Box>
   );

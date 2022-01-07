@@ -23,8 +23,8 @@ const StyledInput = (props) => {
             borderColor: '#ff9b33',
             boxShadow: 'none',
           },
-          ...props.sx,
         },
+        ...props.sx,
       }}
     />
   );

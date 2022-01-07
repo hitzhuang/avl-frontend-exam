@@ -4,6 +4,8 @@ import { Button } from '@mui/material';
 const StyledButton = (props) => {
   return (
     <Button
+      margin="normal"
+      {...props}
       sx={{
         color: '#121212',
         bgcolor: 'white',

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box } from '@mui/system';
-import { Paper, Typography } from '@mui/material';
+import { Paper, Skeleton, Typography } from '@mui/material';
 
-const TagItem = ({ name, count }) => {
+const TagItem = ({ name, count, type }) => {
   return (
     <Box sx={{ width: '150px' }}>
       <Box sx={{ position: 'relative', width: '100%', height: '150px' }}>
@@ -32,7 +32,7 @@ const TagItem = ({ name, count }) => {
             whiteSpace: 'nowrap',
           }}
         >
-          {name}
+          {name ? name : <Skeleton sx={{ bgcolor: 'gray' }} />}
         </Typography>
       </Box>
       <Typography
@@ -46,7 +46,7 @@ const TagItem = ({ name, count }) => {
           whiteSpace: 'nowrap',
         }}
       >
-        {name}
+        {name ? name : <Skeleton sx={{ bgcolor: 'gray' }} />}
       </Typography>
       <Typography
         sx={{
@@ -56,7 +56,7 @@ const TagItem = ({ name, count }) => {
           color: '#b2b2b2',
         }}
       >
-        {count} Results
+        {count ? `${count} ${type}` : <Skeleton sx={{ bgcolor: 'gray' }} />}
       </Typography>
     </Box>
   );

@@ -7,28 +7,30 @@ import Home from './pages/Home';
 import Tabs from './pages/Tabs';
 import Components from './pages/Components';
 import Search from './containers/Search';
-import Results from './containers/Results';
+import SearchResults from './containers/SearchResults';
+
+// import './services/mirage';
+
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Ubuntu',
+    color: 'white',
+  },
+});
 
 function App() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: 'Ubuntu',
-      color: 'white',
-    },
-  });
   const matches = useMediaQuery('(max-width:375px)');
   const renderRoutes = (mobileScreen) => (
     <Box
       sx={{
-        marginTop: mobileScreen ? '20px' : '54px',
-        marginLeft: mobileScreen ? '20px' : 'auto',
-        marginRight: 'auto',
+        marginTop: mobileScreen ? '20px' : '55px',
+        width: '100%',
       }}
     >
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="/" element={<Search />} />
-          <Route path="/results" element={<Results />} />
+          <Route path="/search" element={<SearchResults />} />
         </Route>
         <Route path="tabs" element={<Tabs />} />
         <Route path="components" element={<Components />} />
