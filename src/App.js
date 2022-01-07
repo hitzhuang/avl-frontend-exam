@@ -9,7 +9,7 @@ import Components from './pages/Components';
 import Search from './containers/Search';
 import SearchResults from './containers/SearchResults';
 
-// import './services/mirage';
+import './services/mirage';
 
 const theme = createTheme({
   typography: {
