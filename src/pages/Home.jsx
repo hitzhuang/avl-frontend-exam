@@ -20,7 +20,7 @@ const Home = () => {
       <Outlet />
 
       {/* display profile only when the screen width matches more than 1440px */}
-      {matches && <Profile />}
+      {matches && <Profile mobileScreen />}
     </Box>
   );
 };

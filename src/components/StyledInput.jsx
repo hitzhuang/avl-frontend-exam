@@ -12,11 +12,12 @@ const StyledInput = (props) => {
         fontFamily: 'Ubuntu',
         letterSpacing: '0.25px',
         '& .MuiInputBase-input': {
-          minHeight: '52px',
-          borderRadius: '6px',
+          minHeight: '60px',
           position: 'relative',
           backgroundColor: '',
+          borderRadius: '6px',
           border: '3px solid rgba(255,255,255,0.5)',
+          boxSizing: 'border-box',
           fontSize: '14px',
           padding: '2px 0px 0px 15px',
           '&:focus': {

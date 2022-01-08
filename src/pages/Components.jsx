@@ -56,7 +56,7 @@ const Components = () => {
         >
           <ComponentStatusTitle text="NORMAL" />
           <OutlinedButton
-            sx={{ marginTop: '12px', marginLeft: '-1px', width: '58px' }}
+            sx={{ marginTop: '12px', marginLeft: '-2px', width: '60px' }}
           >
             Button
           </OutlinedButton>
@@ -107,7 +107,7 @@ const Components = () => {
         {/* NORMAL */}
         <Box sx={{ marginTop: '36px', marginLeft: '-1px' }}>
           <ComponentStatusTitle text="NORMAL" />
-          <StyledInput sx={{ marginTop: '8px', width: '704px' }} />
+          <StyledInput sx={{ marginTop: '8px', width: '725px' }} />
         </Box>
         {/* FOCUSED */}
         <Box sx={{ marginTop: '48px', marginLeft: '-1px' }}>

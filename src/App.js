@@ -9,13 +9,21 @@ import Components from './pages/Components';
 import Search from './containers/Search';
 import SearchResults from './containers/SearchResults';
 
-import './services/mirage';
+// import './services/mirage';
 
 const theme = createTheme({
   typography: {
     fontFamily: 'Ubuntu',
     color: 'white',
   },
+  // palette: {
+  //   primary: {
+  //     main: '#181818',
+  //     light: '#121212',
+  //     dark: '#181818',
+  //     contrastText: 'white',
+  //   },
+  // },
 });
 
 function App() {

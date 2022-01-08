@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react';
 import TagItem from '../components/TagItem';
 
 const Tabs = () => {
-  const emptyAs = Array(10).fill('');
-  const [tags, setTags] = useState([...emptyAs]);
+  const emptyArray = Array(10).fill('');
+  const [tags, setTags] = useState([...emptyArray]);
 
   // load tags info from server
   useEffect(() => {
-    // fetch('https://avl-frontend-exam.herokuapp.com/api/tags')
-    fetch('/api/tags')
+    fetch('https://avl-frontend-exam.herokuapp.com/api/tags')
+      // fetch('/api/tags')
       .then((response) => response.json())
       .then((results) => {
         console.log(results);
