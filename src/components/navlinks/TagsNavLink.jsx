@@ -7,9 +7,9 @@ import Icon from '../../assets/clone.svg';
 import InactiveIcon from '../../assets/clone-gray-out.svg';
 
 const TabsNavLink = ({ sx }) => {
-  const active = useLocation().pathname === '/tabs';
+  const active = useLocation().pathname === '/tags';
   return (
-    <Link to="/tabs">
+    <Link to="/tags">
       <Box
         sx={{
           display: 'flex',
@@ -19,15 +19,26 @@ const TabsNavLink = ({ sx }) => {
         }}
       >
         {/* icon */}
-        <BadgeUnstyled variant="dot" component={active ? '' : StyledBadge}>
-          <img
-            src={active ? Icon : InactiveIcon}
-            alt="tabs nav icon"
+        {active ? (
+          <Box
+            component="img"
+            alt="tags nav icon"
             width={24}
             height={24}
+            src={Icon}
+            mt="18px"
           />
-        </BadgeUnstyled>
-
+        ) : (
+          <BadgeUnstyled variant="dot" component={StyledBadge}>
+            <Box
+              component="img"
+              alt="tags nav icon"
+              width={24}
+              height={24}
+              src={InactiveIcon}
+            />
+          </BadgeUnstyled>
+        )}
         {/* nav name */}
         <Typography
           sx={{
@@ -35,9 +46,11 @@ const TabsNavLink = ({ sx }) => {
             lineHeight: '18px',
             letterSpacing: '0.4px',
             color: 'white',
+            mt: '1px',
+            ml: '1px',
           }}
         >
-          {active ? 'Tabs' : ''}
+          {active ? 'Tags' : ''}
         </Typography>
       </Box>
     </Link>

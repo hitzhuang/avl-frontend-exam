@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Container, Grid, Typography } from '@mui/material';
-import useInfiniteScroll from 'react-infinite-scroll-hook';
+import { Box, Container, Grid } from '@mui/material';
 import useLinkQuery from '../hooks/useLinkQuery';
 import useLoadListItems from '../hooks/useLoadListItems';
 import SearchResultItem from '../components/items/SearchResultItem';
@@ -12,18 +11,11 @@ const SearchResults = () => {
   const desktopScreen = !useMobileQuery();
   const [keyword, pageSize] = useLinkQuery(['keyword', 'pageSize']);
   const responses = useLoadListItems('all', { pageSize, keyword });
-  const { loading, list, hasNextPage, error, loadMore } = responses;
+  const { loading, list, hasNextPage, loadMore } = responses;
   const [enableNext, setEnableNext] = useState(false);
 
   const handleFetching = () => {
-    loadMore().finally(() => {
-      console.log(hasNextPage);
-      if (hasNextPage) {
-        setEnableNext(true);
-      } else {
-        setEnableNext(false);
-      }
-    });
+    loadMore().finally(() => setEnableNext(hasNextPage));
   };
 
   useEffect(() => {
@@ -49,8 +41,7 @@ const SearchResults = () => {
               lineHeight: '45px',
               letterSpacing: '0.25px',
               color: 'white',
-              ml: '25px',
-              mt: '1px',
+              ml: '26px',
             }}
           >
             Results

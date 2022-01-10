@@ -11,6 +11,8 @@ const BackNavLink = ({ sx, children }) => {
         sx={{
           display: 'inline-flex',
           alignItems: 'center',
+          mt: '1px',
+          ml: '-1px',
         }}
       >
         {/* back icon */}

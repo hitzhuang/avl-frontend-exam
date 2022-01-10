@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from '@mui/system';
 import LogoNavLink from '../navlinks/LogoNavLink';
 import HomeNavLink from '../navlinks/HomeNavLink';
-import TabsNavLink from '../navlinks/TabsNavLink';
+import TagsNavLink from '../navlinks/TagsNavLink';
 
 const DestopNavbar = () => {
   return (
@@ -24,7 +24,7 @@ const DestopNavbar = () => {
       <HomeNavLink sx={{ marginTop: '38px', marginLeft: '1px' }} />
 
       {/* tabs */}
-      <TabsNavLink sx={{ marginTop: '22px', marginLeft: '1px' }} />
+      <TagsNavLink sx={{ marginTop: '22px', marginLeft: '1px' }} />
     </Box>
   );
 };

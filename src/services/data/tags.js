@@ -1,9 +1,9 @@
-const dummyTabs = Array(10).fill({
+const dummyTabs = Array(12).fill({
   count: 50,
   name: 'Tag',
   type: 'Questions',
 });
-const tabs = [
+const tags = [
   {
     count: 350,
     name: 'Cool',
@@ -11,7 +11,7 @@ const tabs = [
   },
   {
     count: 210,
-    name: 'Beautiful',
+    name: 'Beauti...',
     type: 'Results',
   },
   {
@@ -47,4 +47,4 @@ const tabs = [
   ...dummyTabs,
 ];
 
-export default tabs;
+export default tags;

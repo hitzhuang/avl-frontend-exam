@@ -1,16 +1,15 @@
 import { createTheme, ThemeProvider } from '@mui/material';
-import { Box } from '@mui/system';
-
 import { Routes, Route, useLocation } from 'react-router-dom';
-import useMobileQuery from './hooks/useMobileQuery';
+import { Box } from '@mui/system';
 import Navbar from './components/navbars/Navbar';
 import Home from './pages/Home';
-import Tabs from './pages/Tabs';
+import Tags from './pages/Tags';
 import Components from './pages/Components';
 import Search from './containers/Search';
 import SearchResults from './containers/SearchResults';
+import useMobileQuery from './hooks/useMobileQuery';
 
-// import './services/mirage';
+import './services/mirage';
 
 const theme = createTheme({
   typography: {
@@ -28,7 +27,7 @@ function App() {
           <Route path="/" element={<Search />} />
           <Route path="/search" element={<SearchResults />} />
         </Route>
-        <Route path="tabs" element={<Tabs />} />
+        <Route path="tags" element={<Tags />} />
         <Route path="components" element={<Components />} />
       </Routes>
     </Box>
