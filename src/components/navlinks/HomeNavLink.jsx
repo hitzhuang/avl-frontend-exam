@@ -7,7 +7,7 @@ import InactiveIcon from '../../assets/clone-gray-out.svg';
 
 const HomeNavLink = ({ sx }) => {
   const path = useLocation().pathname;
-  const active = path === '/' || path === '/results';
+  const active = path === '/' || path === '/search';
 
   return (
     <Link to="/">

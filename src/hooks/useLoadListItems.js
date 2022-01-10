@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-const fetchData = (urlRoot, type, nextPage, pageSize) => {
-  return fetch(urlRoot + `${type}?page=${nextPage}&pageSize=${pageSize}`).then(
-    (response) => response.json()
-  );
+const urlRoot = 'https://avl-frontend-exam.herokuapp.com/api/users/';
+const fetchData = (nextPage, type, params) => {
+  let queries = Object.entries(params).map((p) => p.join('='));
+  let url = urlRoot + `${type}?page=${nextPage}&${queries.join('&')}`;
+  return fetch(url).then((response) => response.json());
 };
-
-const useLoadListItems = (urlRoot, type, pageSize = 10) => {
+const useLoadListItems = (type, params) => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [nextPage, setNextPage] = useState(1);
@@ -14,7 +14,7 @@ const useLoadListItems = (urlRoot, type, pageSize = 10) => {
   const [error, setError] = useState();
   const loadMore = () => {
     setLoading(true);
-    fetchData(urlRoot, type, nextPage, pageSize)
+    return fetchData(nextPage, type, params)
       .then((results) => {
         let newList = list.concat(results.data);
         setHasNextPage(newList.length < results.total);
@@ -24,6 +24,7 @@ const useLoadListItems = (urlRoot, type, pageSize = 10) => {
       })
       .catch((error) => setError(error));
   };
+
   return { loading, list, hasNextPage, error, loadMore };
 };
 

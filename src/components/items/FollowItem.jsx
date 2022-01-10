@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box } from '@mui/system';
 import { Avatar, Skeleton, Typography } from '@mui/material';
-import ContainedButton from './buttons/ContainedButton';
-import OutlinedButton from './buttons/OutlinedButton';
+import ContainedButton from '../buttons/ContainedButton';
+import OutlinedButton from '../buttons/OutlinedButton';
 
 const FollowButton = ({ isFollowing }) =>
   isFollowing ? (

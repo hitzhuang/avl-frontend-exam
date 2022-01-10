@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Skeleton, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import TagItem from '../components/TagItem';
+import TagItem from '../components/items/TagItem';
 
 const Tabs = () => {
   const emptyArray = Array(10).fill('');

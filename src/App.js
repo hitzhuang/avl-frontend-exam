@@ -1,7 +1,8 @@
-import { createTheme, ThemeProvider, useMediaQuery } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material';
 import { Box } from '@mui/system';
-import { isMobile } from 'react-device-detect';
+
 import { Routes, Route, useLocation } from 'react-router-dom';
+import useMobileQuery from './hooks/useMobileQuery';
 import Navbar from './components/navbars/Navbar';
 import Home from './pages/Home';
 import Tabs from './pages/Tabs';
@@ -16,25 +17,12 @@ const theme = createTheme({
     fontFamily: 'Ubuntu',
     color: 'white',
   },
-  // palette: {
-  //   primary: {
-  //     main: '#181818',
-  //     light: '#121212',
-  //     dark: '#181818',
-  //     contrastText: 'white',
-  //   },
-  // },
 });
 
 function App() {
-  const matches = useMediaQuery('(max-width:375px)');
-  const renderRoutes = (mobileScreen) => (
-    <Box
-      sx={{
-        marginTop: mobileScreen ? '20px' : '55px',
-        width: '100%',
-      }}
-    >
+  const mobileScreen = useMobileQuery();
+  const renderRoutes = () => (
+    <Box sx={{ width: '100%' }}>
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="/" element={<Search />} />
@@ -45,29 +33,13 @@ function App() {
       </Routes>
     </Box>
   );
-
   const renderContent = () => {
-    /* mobile view */
-    if (isMobile || matches) {
-      return (
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '100%',
-          }}
-        >
-          <Navbar mobileScreen={true} />
-          {renderRoutes(true)}
-        </Box>
-      );
-    }
-
-    /* desktop view */
     return (
-      <Box sx={{ display: 'flex' }}>
-        <Navbar />
-        {renderRoutes(false)}
+      <Box
+        sx={mobileScreen ? styles.container.mobile : styles.container.desktop}
+      >
+        <Navbar mobileScreen={mobileScreen} />
+        {renderRoutes()}
       </Box>
     );
   };
@@ -84,5 +56,16 @@ function App() {
     </ThemeProvider>
   );
 }
+
+const styles = {
+  container: {
+    desktop: { display: 'flex' },
+    mobile: {
+      display: 'flex',
+      flexDirection: 'column',
+      width: '100%',
+    },
+  },
+};
 
 export default App;
