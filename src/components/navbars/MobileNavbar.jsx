@@ -10,7 +10,7 @@ const MobileNavbar = () => {
   return (
     <Box sx={styles.root}>
       {isHome ? (
-        <LogoNavLink sx={styles.home} />
+        <LogoNavLink sx={styles.logo} />
       ) : (
         <BackNavLink sx={styles.back}>Home Page</BackNavLink>
       )}
@@ -23,13 +23,13 @@ const styles = {
     height: '70px',
     display: 'flex',
     alignItems: 'center',
-    paddingLeft: '20px',
+    paddingLeft: '21px',
     bgcolor: '#181818',
     position: 'relative',
+    mb: '1px',
   },
-  home: {
-    paddingTop: '28px',
-    paddingLeft: '21px',
+  logo: {
+    mt: '3px',
   },
   back: {
     color: 'white',

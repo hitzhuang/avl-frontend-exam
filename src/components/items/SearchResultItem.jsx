@@ -2,12 +2,12 @@ import { Skeleton, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 
-const SearchResultItem = ({ avater, title, username }) => {
+const SearchResultItem = ({ avatar, title, username }) => {
   return (
     <Box sx={{ width: '219px' }}>
       {/* image */}
-      {avater ? (
-        <Box component="img" sx={styles.image} alt="image" src="/image1.png" />
+      {avatar ? (
+        <Box component="img" sx={styles.image} alt="image" src={avatar} />
       ) : (
         <Skeleton
           sx={{ ...styles.skeleton, ...styles.avatar }}

@@ -10,17 +10,20 @@ import StyledButton from '../components/buttons/StyledButton';
 const SearchResults = () => {
   const desktopScreen = !useMobileQuery();
   const [keyword, pageSize] = useLinkQuery(['keyword', 'pageSize']);
-  const responses = useLoadListItems('all', { pageSize, keyword });
+  const responses = useLoadListItems('search', { pageSize, keyword });
   const { loading, list, hasNextPage, loadMore } = responses;
   const [enableNext, setEnableNext] = useState(false);
 
-  const handleFetching = () => {
-    loadMore().finally(() => setEnableNext(hasNextPage));
+  // console.log(hasNextPage);
+
+  const handleFetching = async () => {
+    await loadMore();
+    setEnableNext(hasNextPage);
   };
 
   useEffect(() => {
     handleFetching();
-  }, []);
+  }, [hasNextPage]);
 
   return (
     <Box
@@ -65,7 +68,7 @@ const SearchResults = () => {
             key={index}
             sx={index / 3 < 1 ? { mb: '32px' } : { mb: '50px' }}
           >
-            <SearchResultItem {...item} title="This is a title" />
+            <SearchResultItem {...item} />
           </Grid>
         ))}
         {loading &&
