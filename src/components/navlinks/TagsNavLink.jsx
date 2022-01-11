@@ -6,8 +6,33 @@ import StyledBadge from '../StyledBadge';
 import Icon from '../../assets/clone.svg';
 import InactiveIcon from '../../assets/clone-gray-out.svg';
 
-const TabsNavLink = ({ sx }) => {
+const TabsNavLink = ({ sx, showLabel = true }) => {
   const active = useLocation().pathname === '/tags';
+  const renderIcon = () => (
+    <Box
+      component="img"
+      alt="tags nav icon"
+      width={24}
+      height={24}
+      src={active ? Icon : InactiveIcon}
+      mt={showLabel ? '18px' : '0px'}
+    />
+  );
+  const renderIconWithBadge = () =>
+    showLabel ? (
+      <BadgeUnstyled variant="dot" component={StyledBadge}>
+        <Box
+          component="img"
+          alt="tags nav icon"
+          width={24}
+          height={24}
+          src={InactiveIcon}
+        />
+      </BadgeUnstyled>
+    ) : (
+      renderIcon()
+    );
+
   return (
     <Link to="/tags">
       <Box
@@ -19,39 +44,23 @@ const TabsNavLink = ({ sx }) => {
         }}
       >
         {/* icon */}
-        {active ? (
-          <Box
-            component="img"
-            alt="tags nav icon"
-            width={24}
-            height={24}
-            src={Icon}
-            mt="18px"
-          />
-        ) : (
-          <BadgeUnstyled variant="dot" component={StyledBadge}>
-            <Box
-              component="img"
-              alt="tags nav icon"
-              width={24}
-              height={24}
-              src={InactiveIcon}
-            />
-          </BadgeUnstyled>
-        )}
+        {active ? renderIcon() : renderIconWithBadge()}
+
         {/* nav name */}
-        <Typography
-          sx={{
-            fontSize: '12px',
-            lineHeight: '18px',
-            letterSpacing: '0.4px',
-            color: 'white',
-            mt: '1px',
-            ml: '1px',
-          }}
-        >
-          {active ? 'Tags' : ''}
-        </Typography>
+        {showLabel && (
+          <Typography
+            sx={{
+              fontSize: '12px',
+              lineHeight: '18px',
+              letterSpacing: '0.4px',
+              color: 'white',
+              mt: '1px',
+              ml: '1px',
+            }}
+          >
+            {active ? 'Tags' : ''}
+          </Typography>
+        )}
       </Box>
     </Link>
   );

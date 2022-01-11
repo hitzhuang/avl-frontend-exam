@@ -18,12 +18,10 @@ const useLoadListItems = (type, params) => {
       setLoading(true);
       let results = await fetchData(nextPage, type, params);
       let newList = list.concat(results.data);
-      console.log(`hook: ${results.page < results.totalPages}`);
       setHasNextPage(results.page < results.totalPages);
       setNextPage((page) => page + 1);
       setList(newList);
       setLoading(false);
-      console.log(nextPage);
     } catch (error) {
       setError(error);
     }

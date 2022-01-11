@@ -5,7 +5,7 @@ import { Box } from '@mui/system';
 import Icon from '../../assets/clone.svg';
 import InactiveIcon from '../../assets/clone-gray-out.svg';
 
-const HomeNavLink = ({ sx }) => {
+const HomeNavLink = ({ sx, showLabel = true }) => {
   const path = useLocation().pathname;
   const active = path === '/' || path === '/search';
 
@@ -28,17 +28,19 @@ const HomeNavLink = ({ sx }) => {
         />
 
         {/* nav name */}
-        <Typography
-          sx={{
-            fontSize: '12px',
-            lineHeight: '18px',
-            letterSpacing: '0.4px',
-            color: 'white',
-            marginLeft: '1px',
-          }}
-        >
-          {active ? 'Home' : ''}
-        </Typography>
+        {showLabel && (
+          <Typography
+            sx={{
+              fontSize: '12px',
+              lineHeight: '18px',
+              letterSpacing: '0.4px',
+              color: 'white',
+              ml: '1px',
+            }}
+          >
+            {active ? 'Home' : ''}
+          </Typography>
+        )}
       </Box>
     </Link>
   );

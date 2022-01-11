@@ -6,6 +6,7 @@ import StyledButton from '../components/buttons/StyledButton';
 import StyledInput from '../components/StyledInput';
 import StyledSlider from '../components/StyledSlider';
 import useMobileQuery from '../hooks/useMobileQuery';
+import BottomNavbar from '../components/navbars/BottomNavbar';
 
 const SearchDivider = ({ sx }) => (
   <Divider
@@ -27,18 +28,8 @@ const Search = () => {
   const handleSliderChanged = (e, data) => setPageSize(data);
   const desktopScreen = !useMobileQuery();
 
-  return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-        maxWidth: '725px',
-        padding: '0px 20px',
-        mx: 'auto',
-        mt: desktopScreen ? '55px' : '0px',
-      }}
-    >
+  const SearchInput = () => (
+    <>
       <Typography
         sx={{
           fontSize: '24px',
@@ -49,9 +40,11 @@ const Search = () => {
         Search
       </Typography>
       <StyledInput fullWidth value={keyword} onChange={handleKeywordChanged} />
-      {desktopScreen && <SearchDivider />}
+    </>
+  );
 
-      {/* display for # of results per page */}
+  const NumberOfResultsPerPage = () => (
+    <>
       <Typography
         sx={{
           fontSize: '24px',
@@ -66,34 +59,65 @@ const Search = () => {
         <Typography sx={styles.numberOfResults}>{pageSize}</Typography>
         <Typography sx={styles.resultsLabel}>results</Typography>
       </Box>
+    </>
+  );
 
-      {/* slider for # of results per page */}
-      <StyledSlider
-        aria-label="page size slider"
-        defaultValue={defaultPageSize}
-        desktopScreen={desktopScreen}
+  const SearchSlider = () => (
+    <StyledSlider
+      aria-label="page size slider"
+      defaultValue={defaultPageSize}
+      desktopScreen={desktopScreen}
+      sx={{
+        maxWidth: '734px',
+        width: '100%',
+        mt: desktopScreen ? '0px' : '-7px',
+      }}
+      min={3}
+      max={50}
+      handleValueChanged={handleSliderChanged}
+    />
+  );
+
+  const SearchButton = () => (
+    <Link to={`search?pageSize=${pageSize}&keyword=${keyword}`}>
+      <StyledButton
         sx={{
-          maxWidth: '734px',
-          width: '100%',
-          mt: desktopScreen ? '0px' : '-7px',
+          width: desktopScreen ? '343px' : '100%',
+          mt: desktopScreen ? '304px' : '49px',
         }}
-        min={3}
-        max={50}
-        handleValueChanged={handleSliderChanged}
-      />
-      <SearchDivider sx={{ marginTop: desktopScreen ? '34px' : '215px' }} />
+      >
+        SEARCH
+      </StyledButton>
+    </Link>
+  );
 
-      {/* search action button */}
-      <Link to={`search?pageSize=${pageSize}&keyword=${keyword}`}>
-        <StyledButton
-          sx={{
-            width: desktopScreen ? '343px' : '100%',
-            mt: desktopScreen ? '304px' : '49px',
-          }}
-        >
-          SEARCH
-        </StyledButton>
-      </Link>
+  return (
+    <Box sx={{ width: '100%', padding: '0px 20px' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100%',
+          maxWidth: '725px',
+          mx: 'auto',
+          mt: desktopScreen ? '55px' : '0px',
+        }}
+      >
+        {/* search input */}
+        <SearchInput />
+        {desktopScreen && <SearchDivider />}
+
+        {/* display for # of results per page */}
+        <NumberOfResultsPerPage />
+
+        {/* slider for # of results per page */}
+        <SearchSlider />
+        <SearchDivider sx={{ marginTop: desktopScreen ? '34px' : '215px' }} />
+
+        {/* search action button */}
+        <SearchButton />
+      </Box>
+      {desktopScreen !== true && <BottomNavbar />}
     </Box>
   );
 };

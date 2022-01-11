@@ -1,4 +1,4 @@
-const dummyData = Array(0).fill({
+const dummyData = Array(100).fill({
   title: 'This is a title',
   username: 'username',
   avatar: '/image1.png',

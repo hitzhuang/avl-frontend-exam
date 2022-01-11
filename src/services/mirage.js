@@ -59,7 +59,7 @@ createServer({
         let search = getKeywordSearched(url, profiles);
         return getValues(url, search);
       },
-      { timing: 0 }
+      { timing: 3000 }
     );
   },
 });

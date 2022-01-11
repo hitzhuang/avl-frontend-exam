@@ -12,18 +12,14 @@ const SearchResults = () => {
   const [keyword, pageSize] = useLinkQuery(['keyword', 'pageSize']);
   const responses = useLoadListItems('search', { pageSize, keyword });
   const { loading, list, hasNextPage, loadMore } = responses;
-  const [enableNext, setEnableNext] = useState(false);
-
-  // console.log(hasNextPage);
 
   const handleFetching = async () => {
     await loadMore();
-    setEnableNext(hasNextPage);
   };
 
   useEffect(() => {
     handleFetching();
-  }, [hasNextPage]);
+  }, []);
 
   return (
     <Box
@@ -78,7 +74,7 @@ const SearchResults = () => {
             </Grid>
           ))}
       </Grid>
-      {enableNext && (
+      {hasNextPage && !loading && (
         <StyledButton
           sx={{ mt: '-12px', ml: '44px', width: '343px' }}
           onClick={handleFetching}
