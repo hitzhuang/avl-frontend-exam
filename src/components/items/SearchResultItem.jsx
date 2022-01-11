@@ -2,12 +2,16 @@ import { Skeleton, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 
-const SearchResultItem = ({ avatar, title, username }) => {
+const SearchResultItem = ({ avatar, title, username, desktopScreen }) => {
   return (
-    <Box sx={{ width: '219px' }}>
+    <Box
+      sx={{
+        width: desktopScreen ? '219px' : '335px',
+      }}
+    >
       {/* image */}
       {avatar ? (
-        <Box component="img" sx={styles.image} alt="image" src={avatar} />
+        <Box component="img" sx={styles.avatar} alt="image" src={avatar} />
       ) : (
         <Skeleton
           sx={{ ...styles.skeleton, ...styles.avatar }}
@@ -16,7 +20,9 @@ const SearchResultItem = ({ avatar, title, username }) => {
       )}
 
       {/* title */}
-      <Typography sx={styles.title}>
+      <Typography
+        sx={{ ...styles.title, mt: desktopScreen ? styles.title.mt : '15px' }}
+      >
         {title ? `${title}` : <Skeleton sx={styles.skeleton} />}
       </Typography>
 
@@ -30,8 +36,7 @@ const SearchResultItem = ({ avatar, title, username }) => {
 
 const styles = {
   avatar: {
-    width: '219px',
-    height: '146px',
+    width: '100%',
   },
   title: {
     fontSize: '15px',
@@ -41,8 +46,8 @@ const styles = {
   username: {
     fontSize: '8px',
     lineHeight: '150%',
-    mt: '-2px',
     color: '#b2b2b2',
+    mt: '-2px',
   },
   skeleton: {
     bgcolor: 'gray',

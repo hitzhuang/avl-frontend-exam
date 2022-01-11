@@ -73,7 +73,7 @@ const Components = () => {
       </Box>
 
       {/* Contained buttons */}
-      <Box sx={{ display: 'flex', marginTop: '25px' }}>
+      <Box sx={{ display: 'flex', marginTop: '24px' }}>
         <ComponentTypeTitle text="Contained" sx={{ marginTop: '27px' }} />
         {/* NORMAL */}
         <Box

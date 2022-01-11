@@ -1,10 +1,12 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import TagItem from '../components/items/TagItem';
+import useMobileQuery from '../hooks/useMobileQuery';
 
 const Tags = () => {
   const emptyArray = Array(5).fill('');
   const [tags, setTags] = useState([...emptyArray]);
+  const desktopScreen = !useMobileQuery();
 
   // load tags info from server
   useEffect(() => {
@@ -21,18 +23,17 @@ const Tags = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        minWidth: '375px',
         maxWidth: '846px',
-        mt: '81px',
+        mt: desktopScreen ? '80px' : '20px',
         mx: 'auto',
+        px: desktopScreen ? '25px' : '20px',
       }}
     >
       {/* tags page title */}
       <Typography
         sx={{
-          fontSize: '30px',
-          lineHeight: '45px',
-          letterSpacing: '0.25px',
+          fontSize: desktopScreen ? '30px' : '24px',
+          letterSpacing: desktopScreen ? '0.25px' : '0px',
           mb: '23px',
         }}
       >
@@ -40,7 +41,12 @@ const Tags = () => {
       </Typography>
 
       {/* tags page responsive content */}
-      <Grid container rowGap="36px" columnGap="24px">
+      <Grid
+        container
+        columnGap="24px"
+        rowGap={desktopScreen ? '36px' : '24px'}
+        sx={{ px: desktopScreen ? '0px' : '5px' }}
+      >
         {tags.map((item, index) => (
           <Grid item key={index}>
             <TagItem {...item} />

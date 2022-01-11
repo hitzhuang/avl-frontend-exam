@@ -8,8 +8,12 @@ const Profile = () => {
   const handleTabChanged = (e, tab) => setTabIndex(tab);
 
   return (
-    <Box sx={{ width: '375px', marginTop: '17px' }}>
-      <AppBar position="static" elevation={0}>
+    <Box sx={{ width: '375px', minWidth: '375px' }}>
+      <AppBar
+        position="static"
+        elevation={0}
+        sx={{ pt: '17px', bgcolor: 'rgba(0,0,0,0)' }}
+      >
         <Tabs
           sx={styles.tabs}
           aria-label="flowers and following tabs"

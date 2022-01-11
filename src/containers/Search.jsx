@@ -62,22 +62,6 @@ const Search = () => {
     </>
   );
 
-  const SearchSlider = () => (
-    <StyledSlider
-      aria-label="page size slider"
-      defaultValue={defaultPageSize}
-      desktopScreen={desktopScreen}
-      sx={{
-        maxWidth: '734px',
-        width: '100%',
-        mt: desktopScreen ? '0px' : '-7px',
-      }}
-      min={3}
-      max={50}
-      handleValueChanged={handleSliderChanged}
-    />
-  );
-
   const SearchButton = () => (
     <Link to={`search?pageSize=${pageSize}&keyword=${keyword}`}>
       <StyledButton
@@ -92,7 +76,7 @@ const Search = () => {
   );
 
   return (
-    <Box sx={{ width: '100%', padding: '0px 20px' }}>
+    <Box sx={{ width: '100%', px: desktopScreen ? '0px' : '20px' }}>
       <Box
         sx={{
           display: 'flex',
@@ -111,7 +95,20 @@ const Search = () => {
         <NumberOfResultsPerPage />
 
         {/* slider for # of results per page */}
-        <SearchSlider />
+        {/* <SearchSlider /> */}
+        <StyledSlider
+          aria-label="page size slider"
+          defaultValue={defaultPageSize}
+          desktopScreen={desktopScreen}
+          sx={{
+            maxWidth: '734px',
+            width: '100%',
+            mt: desktopScreen ? '0px' : '-7px',
+          }}
+          min={3}
+          max={50}
+          handleValueChanged={handleSliderChanged}
+        />
         <SearchDivider sx={{ marginTop: desktopScreen ? '34px' : '215px' }} />
 
         {/* search action button */}
