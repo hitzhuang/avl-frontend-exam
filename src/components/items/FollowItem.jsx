@@ -13,13 +13,13 @@ const FollowButton = ({ isFollowing }) =>
     <OutlinedButton sx={{ width: '60px' }}>Follow</OutlinedButton>
   );
 
-const FollowItem = ({ avater, isFollowing, name, username }) => {
+const FollowItem = ({ avatar, isFollowing, name, username }) => {
   return (
     <Box sx={styles.root}>
       <Box sx={{ display: 'flex' }}>
         {/* Avatar */}
-        {avater ? (
-          <Avatar sx={styles.avatar} src={avater} variant="square" />
+        {avatar ? (
+          <Avatar sx={styles.avatar} src={avatar} variant="square" />
         ) : (
           <Skeleton sx={styles.avatarSkeleton} variant="circle" />
         )}
