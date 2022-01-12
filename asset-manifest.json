@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/avl-frontend-exam/static/css/main.be99af7a.css",
-    "main.js": "/avl-frontend-exam/static/js/main.0e3860e4.js",
+    "main.js": "/avl-frontend-exam/static/js/main.e924eb03.js",
     "static/js/787.74867375.chunk.js": "/avl-frontend-exam/static/js/787.74867375.chunk.js",
     "static/media/ubuntu-all-300-normal.woff": "/avl-frontend-exam/static/media/ubuntu-all-300-normal.5ae9997bfac0f4a17c3d.woff",
     "static/media/ubuntu-all-400-normal.woff": "/avl-frontend-exam/static/media/ubuntu-all-400-normal.8d16c52b0e5c119ad95a.woff",
@@ -46,11 +46,11 @@
     "static/media/clone.svg": "/avl-frontend-exam/static/media/clone.0f54d662ad96215a951dac1015c06d1a.svg",
     "static/media/back.svg": "/avl-frontend-exam/static/media/back.b231ee0c052da48c8e813cecb1079aed.svg",
     "main.be99af7a.css.map": "/avl-frontend-exam/static/css/main.be99af7a.css.map",
-    "main.0e3860e4.js.map": "/avl-frontend-exam/static/js/main.0e3860e4.js.map",
+    "main.e924eb03.js.map": "/avl-frontend-exam/static/js/main.e924eb03.js.map",
     "787.74867375.chunk.js.map": "/avl-frontend-exam/static/js/787.74867375.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.be99af7a.css",
-    "static/js/main.0e3860e4.js"
+    "static/js/main.e924eb03.js"
   ]
 }
