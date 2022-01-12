@@ -68,7 +68,6 @@ const Search = () => {
         sx={{
           width: desktopScreen ? '343px' : '100%',
           mt: desktopScreen ? '304px' : '49px',
-          mb: '50px',
         }}
       >
         SEARCH

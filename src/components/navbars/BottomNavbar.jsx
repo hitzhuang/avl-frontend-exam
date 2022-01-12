@@ -13,7 +13,7 @@ const BottomNavbar = () => {
         bottom: 0,
         left: 0,
         right: 0,
-        bgcolor: 'rgba(84, 84, 84, 0.2)',
+        bgcolor: 'rgba(24, 24, 24, 0.8)',
       }}
       variant="1"
     >

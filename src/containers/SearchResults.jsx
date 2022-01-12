@@ -35,6 +35,7 @@ const SearchResults = () => {
 
   useEffect(() => {
     handleFetching();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
