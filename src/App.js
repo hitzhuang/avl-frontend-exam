@@ -27,8 +27,8 @@ function App() {
           <Route path="/" element={<Search />} />
           <Route path="/search" element={<SearchResults />} />
         </Route>
-        <Route path="/tags" element={<Tags />} />
-        <Route path="/components" element={<Components />} />
+        <Route path="tags" element={<Tags />} />
+        <Route path="components" element={<Components />} />
       </Routes>
     </Box>
   );
