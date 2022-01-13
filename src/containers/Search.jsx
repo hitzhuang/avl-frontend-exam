@@ -28,21 +28,6 @@ const Search = () => {
   const handleSliderChanged = (e, data) => setPageSize(data);
   const desktopScreen = !useMobileQuery();
 
-  const SearchInput = () => (
-    <>
-      <Typography
-        sx={{
-          fontSize: '24px',
-          lineHeight: '36px',
-          mb: desktopScreen ? '19px' : '15px',
-        }}
-      >
-        Search
-      </Typography>
-      <StyledInput fullWidth value={keyword} onChange={handleKeywordChanged} />
-    </>
-  );
-
   const NumberOfResultsPerPage = () => (
     <>
       <Typography
@@ -88,7 +73,22 @@ const Search = () => {
         }}
       >
         {/* search input */}
-        <SearchInput />
+        <Box>
+          <Typography
+            sx={{
+              fontSize: '24px',
+              lineHeight: '36px',
+              mb: desktopScreen ? '19px' : '15px',
+            }}
+          >
+            Search
+          </Typography>
+          <StyledInput
+            fullWidth
+            value={keyword}
+            onChange={handleKeywordChanged}
+          />
+        </Box>
         {desktopScreen && <SearchDivider />}
 
         {/* display for # of results per page */}
