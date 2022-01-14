@@ -42,7 +42,10 @@ const StyledSlider = (props) => {
   };
   const handleChange = (e, data) => {
     updateLabelActiveStatus(data);
-    props.handleValueChanged(e, data);
+
+    if (props.handleValueChanged) {
+      props.handleValueChanged(e, data);
+    }
   };
 
   // initial update for active marked label

@@ -1,6 +1,12 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and followed by AVL front-end exam guideline, to to demostrate Hitz Huang's Reactjs skills.
+
+figma file: [https://www.figma.com/file/H6Wzc4BUyuXTpOCKq46aU6/Front-end-Exam-(Pixel)?node-id=0%3A1](<https://www.figma.com/file/H6Wzc4BUyuXTpOCKq46aU6/Front-end-Exam-(Pixel)?node-id=0%3A1>)
+
+demo link: [https://avl-frontend-exam-hitz.herokuapp.com](https://avl-frontend-exam-hitz.herokuapp.com)
+
+component screen: [https://avl-frontend-exam-hitz.herokuapp.com/components](https://avl-frontend-exam-hitz.herokuapp.com/components)
 
 ## Available Scripts
 
